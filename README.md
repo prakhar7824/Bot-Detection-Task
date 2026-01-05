@@ -25,3 +25,23 @@ So as per my approach we need to find middle grounds for this purpose of tacklin
   * Humans have a varied keystroke timings whereas bots have unusually a similar pattern or interval in thier keystrokes focusing no delay from thier previous keystroke.
   * Bots paste massive amounts of textx in the form instantly.
 
+## 2. Detection Methods
+
+* Requests based detections -
+  * Limit the rate of requests per IP/session or implement a per minute rate limit to avoid misuse by the bots.
+  * Flag the IP's that make unusually large amounts of requests and mark them suspicious or restrict them from server or temprory block.
+  * Monitor the IP's that are making requets during the odd hours and block them temprorily.
+ 
+* Behavioural based Analysis -
+  * Track Mouose movements and key stroke timings and scrolling.
+  * Measure the randomness in these as compared to that of humans.
+  * Scripts/Bots have a predictable movement pattern or time interval.
+
+* HoneyPot Input Fields -
+  * As the bots only read the html of the page make a hidden input field which only bots are able to see and not accesible to humans make it not compulsory field if the bot fills that field its automatically          detected as the bot session since a normal human would never have been able to see that field.
+
+* Session Timing Based Detection -
+  * If a unusually short time has been spent in a session and lots of work or pages have been accesed during that time we can flag it as a suspicious bot activity.
+  * if the session has directly started on some other page rather than home its possible indicator of bot activity however this could also be due to browser cookies hence no confirmation but we can flag this.
+ 
+
