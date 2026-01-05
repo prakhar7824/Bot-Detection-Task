@@ -44,4 +44,26 @@ So as per my approach we need to find middle grounds for this purpose of tacklin
   * If a unusually short time has been spent in a session and lots of work or pages have been accesed during that time we can flag it as a suspicious bot activity.
   * if the session has directly started on some other page rather than home its possible indicator of bot activity however this could also be due to browser cookies hence no confirmation but we can flag this.
  
+## 3. Prevention & Mitigation 
 
+* Using 3rd party Softwares -
+  * Using the services like CAPTCHA or bot management systems for only flagged IP's which are marked as suspicious in the detection phase.
+
+* Mitigation Strategies -
+  * Using CAPTCHA for the flagged IP's or the users with unusual behaviours.
+  * Temprorily rate limits instead of permanent bans helps to manage if any real users are blocked.
+  * Email or OTP based verification in case of a temprory ban on the IP or user.
+
+* Progressive Blocking -
+  * Temprory IP bans for the repeated abuse of the rate limit of the server.
+  * Block all the known bot agents and automation frameworks like selenium and chromium.
+  * Use honeypot fields in forms to catch automated submissions silently and then implement a BAN on these IP's
+  * Using a service like Cloudflare or AWS WAF allows us to block known Bots and data center IPs (where most bots are hosted) before they even reach our server.
+ 
+* Throtling -
+   * Instead of instantly banning the bot user which tells he has been banned which gives him a scope to use some other bot technique.
+   * We can implement throttling in which we limit the response from the server soo much that making their automated task becomes inefficient and costly to run.
+ 
+* Feedback Loop -
+  * All the bots activity recorded in log for future refrences and prevention.
+  * Monitor all the false positives to improve user experience and avoid any real user bans.
